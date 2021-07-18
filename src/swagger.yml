@@ -61,6 +61,28 @@ paths:
                 type: string
               electricityReadings:
                 $ref: '#/definitions/ElectricityReadings'
+  /readings/read/{smart_meter_id}/{date}:
+    get:
+      operationId: controller.electricity_reading_controller.read_week
+      tags:
+      - Electricity Reading Controller
+      summary: Get Stored Readings
+      parameters:
+      - name: smart_meter_id
+        in: path
+        required: True
+        description: A string value, e.g. smart-meter-0
+        type: string
+      - name: date
+        in: path
+        required: True
+        description: A unix timestamp. e.g. 1000616838 (Monday, 1. January 2001 03:36:07 GMT)
+        type: number
+      responses:
+        200:
+          description: Successful read operation
+          schema:
+            $ref: '#/definitions/ElectricityReadings'
   /readings/read/{smart_meter_id}:
     get:
       operationId: controller.electricity_reading_controller.read

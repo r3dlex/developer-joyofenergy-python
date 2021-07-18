@@ -15,5 +15,11 @@ class ElectricityReadingRepository:
         else:
             return []
 
+    def find_in_interval(self, smart_meter_id, min_interval, max_interval):
+        if smart_meter_id in self.meter_associated_readings:
+            return self.meter_associated_readings[smart_meter_id]
+        else:
+            return []
+
     def clear(self):
         self.meter_associated_readings = {}

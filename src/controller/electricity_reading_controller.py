@@ -18,3 +18,12 @@ def read(smart_meter_id):
         abort(404)
     else:
         return [r.to_json() for r in readings]
+
+def read_week(smart_meter_id: str, date: int) -> []:
+    max_interval = date
+
+    readings = service.retrieve_readings_for_week(smart_meter_id, date)
+    if len(readings) < 1:
+        abort(404)
+    else:
+        return [r.to_json() for r in readings]

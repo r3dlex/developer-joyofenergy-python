@@ -30,3 +30,5 @@ class TestElectricityReadingService(TestCase):
             ElectricityReading(
                 {"time": iso_format_to_unix_time('2015-09-02T08:55:00'), "reading": 0.23})
         ])
+    
+    
